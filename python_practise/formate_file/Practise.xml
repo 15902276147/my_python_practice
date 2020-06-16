@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>  
+
+<pedestrian type="yellow">
+
+<Student type="black"> 
+    <name>jinpeng.li</name> 
+    <score> score&gt;80 </score>
+    <![CDATA[ 
+    select name,age 
+    from Student
+    where score > 80 
+    ]]>
+    <age>25</age>
+    <hight>176</hight> 
+    <city>tianjin</city>
+</Student>
+
+<Student>
+    <name><!---mingzi-->sai.hu</name> 
+    <score> score &lt; 60 </score>
+    <age> 26 </age> 
+    <hight> 180 </hight>
+    <city> chengdu </city> 
+</Student>
+
+</pedestrian>

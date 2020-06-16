@@ -1,26 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>  
+<?xml version="1.0" encoding = "utf-8" ?> 
 
-<pedestrian type="yellow">
+<School>
+    <Teacher desc="PythonTeacher"> 
+        <name>zhenya.liu</name> 
+        <age> 30 </age>
+        <mobile>1201101892 </mobile>
+    </Teacher>
 
-<Student> 
-    <name>jinpeng.li</name> 
-    <score> score&gt;80 </score>
-    <![CDATA[ 
-    select name,age 
-    from Student
-    where score > 80 
-    ]]>
-    <age>25</age>
-    <hight>176</hight> 
-    <city>tianjin</city>
-</Student>
-
-<Student>
-    <name><!---mingzi-->sai.hu</name> 
-    <score> score &lt; 60 </score>
-    <age> 26 </age> 
-    <hight> 180 </hight>
-    <city> chengdu </city> 
-</Student>
-
-</pedestrian>
+    <Student>
+        <name other="he is best">jinpeng.li</name> 
+        <age> 23 </age> 
+        <mobile> 15902276147 </mobile> 
+    </Student>
+</School>
