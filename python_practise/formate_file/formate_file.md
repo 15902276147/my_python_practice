@@ -56,6 +56,76 @@ CDATA把内部信息视为不需要转义:
 --大小写严格区分
 --配对的标签必须一致
 
--json
+-命名空间 
+    为了防止命名冲突，需要给可能产生冲突元素添加命名空间 
+    --- xmlns: 
+    for example 
+    <School xmlns:student="http://my_student" xmlns:room="http://my_room"> 
+        <student:Name>jinpeng.li</student:Name>
+        <age>23</age> 
+        <room:Name>2014</room:Name> 
+        <location> 1-23-1 <location>
+    </School> 
 
+
+-xml访问: 
+
+--读取两个技术: SAX,DOM
+
+1.SAX (simple api for xml):
+--属于事件驱动的api:读一个xml,读到一个指定的element,用一个触发函数来替换或者显示内容
+--利用SAX解析文档设计到解析起和事件处理两部分
+--特点: 
+1> 快
+2> 流式读取:从头开始读,不会回头看,过去就是过去
+
+2.DOM 
+--是w3c规定的xml变成的借口
+--一个xml文件在缓存中以树形结构保存,读取. 
+--用途: 
+1>定位浏览xml任何一个节点信息
+2>添加删除相应内容 
+
+---minidom
+---etree 
+-以树形结构来表示xml
+-root.getiterator 
+-root.iter
+-find(node_name) 
+-root.findall(node_name) 
+-node.tag:node对应的tagname 
+-node.text:node的文本值
+-node.attrib: node的树形的字典类型的内容
+
+-xml文件写入: 
+
+1>ele.set: 修改属性
+2>ele.append: 添加子元素
+3>ele.remove: 删除元素 
+
+---------------------------------------------------------------
+
+
+-json
+--在线工具: http://www.w3school.com.cn/json/ 
+--轻量级的数据交换格式
+--json格式是一个键值对形式的数据集
+    
+    key : 字符串
+    value : str,int,list,json
+    json使用大括号包裹
+    键值对直接用 , 隔开 
+
+
+-- python for json : 
+--- import json 
+json和python的转换;
+1>json.dumps() : 对数据编码,把python格式表示称json格式
+2>json.loads() : 对数据编码,把json格式转换成python格式
+
+python读取json文件
+1> json.dump(): 把内容写入到json文件中
+2> json.load(): 把json文件内容以python格式读出 
+
+######简单来说,json.loads是用来读取字符串的，json.load用来读取文件######
 

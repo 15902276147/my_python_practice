@@ -3,6 +3,7 @@
 __author__ : 'jinpeng.li'
 
 import xml.etree.ElementTree 
+
 """
 root = xml.etree.ElementTree.parse('Practise.xml') 
 
@@ -27,6 +28,8 @@ for ele in ele_student:
 # 解析xml文件
 root = xml.etree.ElementTree.parse("xml_use_way.xml") 
 
+
+
 """
 # 得到xml文件中所有的node
 nodes = root.getiterator()
@@ -37,12 +40,12 @@ for node in nodes:
         print (node.text)
         # zhenya.liu
         # jinpeng.li
-"""
+""" 
 
+
+""""
 # 得到xml文件中Teacher的info,ele_teacher是一个可迭代对象
 ele_teacher = root.find("Teacher") 
-
-
 
 for node in ele_teacher : 
     print (node.tag,node.text)
@@ -68,6 +71,8 @@ if ele_teacher.tag == 'Teacher':
 
 
 """
+
+
 ele_student = root.findall("Student") 
 for ele in ele_student: 
     for sub in ele.getiterator(): 
@@ -75,4 +80,5 @@ for ele in ele_student:
             if "other" in sub.attrib.keys(): 
                 print (sub.attrib['other'])
         # output: he is the best
-"""
+
+
