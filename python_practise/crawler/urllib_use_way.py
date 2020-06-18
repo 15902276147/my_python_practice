@@ -76,37 +76,7 @@ if __name__ == '__main__':
         "wd": wd
     }    
     #对dict 转换url编码
-    qs_obj  = parse.urlencode("""
-#http://一定要写出来
-url = 'http://www.sina.com.cn' 
-response = requests.get(url)
-result = response.text
-#print (result) 
-#Http请求的返回状态,200表示成功,404表示失败
-print (response.status_code) 
-# get http请求中的headers 
-print (response.headers)
-# 从headers中猜测的响应的内容编码方式 
-#print (response.encoding) 
-Python中requests库中post与get的区别: 
-Web中: 
-1> get是从服务器上获取数据,post是向服务器传送数据 
-2> 尽量避免使用get方式提交表单,因为可能导致安全问题,例如用户输入的用户名和密码将在地址栏中暴露 
-但是在分页程序中,用get会比较快捷 
-
-Crawler:
-
-1>http只有post和get两种命令模式 
-2>post是被设计用来向上放东西;get使被设计用来从服务器取东西
-get之所以也能想服务器发送数据,只是用来设计告诉服务器你到底需要什么样的数据 
-post的信息作为http请求的内容,get实在http头部传输 
-3>传送方式不同,get的参数是在http的头部传送;
-而post的数据则是在http请求的内容里传送
-4> post传送数据时,不需要在URL中显示;
-   get要在url中显示 
-
-"""
-qs_info)
+    qs_obj  = parse.urlencode(qs_info)
     print (qs_obj)
 
     target_url = url + qs_obj
