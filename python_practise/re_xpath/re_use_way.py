@@ -40,21 +40,24 @@ print (m.group(2))
 
 
 
-
+"""
 # v3
-p = re.compile(r'(\d+)([a-z]+)',) 
-m = p.search('onetwo12threefour34',3,10)
+p = re.compile(r'(\d+)([a-z]+)(\d+)',) 
+m = p.search('onetwo123threefour34')
 print (m.group())
 
-
 """
+
 # v4
-p = re.compile(r'[a-z]+')
-m = p.findall('onetwo12threefour34')
-print (m[1])
-""" 
 
 
+p = re.compile(r'[a-z]+$') 
+s = 'onetwo12threefour'
+m = p.search(s)
+print (m.group()) 
+
+n = p.sub(r'fivesix',s) 
+print (n)
 
 """
 # v5
@@ -77,11 +80,8 @@ print (m.group())
 """
 # v6
 title = u'世界 你好,hello moto' 
-
 p = re.compile(r'[\u4e00-\u9fa5]+') 
-
 m = p.findall(title) 
-
 print (m)
 # ['世界','你好']
 
@@ -91,7 +91,6 @@ print (m)
 """
 #贪婪 
 title = u'<div>name</div><div>age</div>' 
-
 p1 = re.compile(r'<div>.*</div>') 
 m1 = p1.search(title) 
 print (m1.group())
