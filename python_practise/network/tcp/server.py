@@ -47,46 +47,37 @@ if __name__ == '__main__':
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
 
-add = ('127.0.0.1',8983)
+ip_addr = ('127.0.0.1',8885) 
 
-s.bind(add) 
+s.bind(ip_addr) 
 
-s.listen(10) 
-print ('waitting for new connection.....') 
+s.listen(5) 
 
+print ('waitting for connection........') 
 
 def server_fun(sock,addr): 
-    print ('accept new connection from %s:%s' % addr) 
+    print ('Accept new connection from %s:%s...' % addr)
 
-    sock.send(b'welcome........')
+    sock.send(b'welcome......') 
 
     while True: 
-        data = sock.recv(1024).decode('utf-8') 
+        data = sock.recv(1024).decode() 
         sleep(1)
-
-        if not data or data == 'exit' : 
+        if not data or data == 'exit': 
             break 
-            
-        send_data = ('hello %s' % data).encode() 
-        sock.send(send_data) 
+        
+        mess = ('hello,%s!' % data).encode() 
+
+        sock.send(mess) 
     
     sock.close() 
-    print ('connection will closed from %s:%s' % addr) 
+    print ('Connection will close from %s:%s' % addr)
 
 
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     while True: 
-        # 接收一个新连接
         sock,addr = s.accept() 
-        # 创建新线程来处理TCP连接(3个name)
         t = Thread(target=server_fun,args=(sock,addr)) 
-        # 启动线程
         t.start()
-
-
-
-
-
-
 

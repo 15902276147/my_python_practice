@@ -33,28 +33,24 @@ if __name__ == '__main__':
 """ 
 
 
-def client_fun(): 
-    sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-    addr = ('127.0.0.1',8983) 
+addr = ('127.0.0.1',8885) 
 
-    sock.connect(addr) 
+s.connect(addr) 
 
-    first_recv_mess = sock.recv(1024).decode() 
-    print (first_recv_mess) 
+data = s.recv(1024).decode() 
+print (data) 
 
-    name_list = [b'jinpeng.li',b'sai.hu',b'jinli.lin'] 
+name_list = [b'jinpeng.li',b'hu.sai',b'jinli.lin'] 
 
-    for name in name_list: 
-        sock.send(name) 
-        second_recv_mess = sock.recv(1024).decode() 
-        print (second_recv_mess)  
+for name in name_list : 
+    s.send(name) 
 
-    fin_mess = b'exit' 
-    sock.send(fin_mess)
-    sock.close() 
+    mess = s.recv(1024).decode() 
+    print (mess) 
 
-if __name__ == '__main__': 
-    client_fun()
+s.send(b'exit') 
+s.close() 
 
 
