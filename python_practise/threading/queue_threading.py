@@ -36,12 +36,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-
 class producer(Thread): 
     def run(self): 
         global result_queue
@@ -68,10 +62,12 @@ class consumer(Thread):
 
 if __name__ == '__main__' : 
     result_queue = queue.Queue() 
+    
     """
     for x in range(500): 
         result_queue.put('初始产品'+str(x)) 
     """
+
     for x in range(2): 
         p = producer() 
         p.start() 
