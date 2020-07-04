@@ -41,8 +41,12 @@ if __name__ == '__main__':
 
     result = f.read().decode('utf-8') 
 
+    """
     with open('./baidu.html','w') as f : 
         f.write(result) 
+    """ 
+
+    print (result)
 
     
 

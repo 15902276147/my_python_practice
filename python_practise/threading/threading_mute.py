@@ -26,5 +26,7 @@ def fun_c ():
     for x in range(5): 
         t = MyThread() 
         t.start() 
+
+
 if __name__ ==  '__main__': 
     fun_c() 

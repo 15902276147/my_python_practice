@@ -8,6 +8,7 @@ import time
 semaphore = threading.Semaphore(3) 
 
 def fun_c(): 
+
     if semaphore.acquire(): 
         for x in range(5): 
             print (threading.current_thread().getName()+'get semaphore') 
@@ -20,5 +21,5 @@ def fun_c():
 
 for y in range(8): 
     t = threading.Thread(target=fun_c,args=()) 
-    
+
     t.start() 

@@ -54,7 +54,6 @@ if __name__ == '__main__':
     
     print (type(response))
     print (response) 
-
     print ("url:{}".format(response.geturl()))
     print ("INFO: {}".format(response.info())) 
     print ('Code: {}'.format(response.getcode())) # 200-成功　404 - not found 

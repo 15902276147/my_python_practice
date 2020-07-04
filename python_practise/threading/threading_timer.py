@@ -18,4 +18,4 @@ if __name__ == '__main__':
     while True : 
         print ('%d *************' % i) 
         time.sleep(1) 
-        i += 1
+        i += 1 

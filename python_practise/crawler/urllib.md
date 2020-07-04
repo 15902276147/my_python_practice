@@ -1,4 +1,4 @@
-#1.urllib: 
+#1.urllib:
 
 -包含模块: 
 -- urllib.request: 打开和读取url 
@@ -7,20 +7,18 @@
 -- urllib.robotparse: 解析robots.txt文件(哪些不能爬)
         -headers为了防止爬虫冲虚爬网站造成网站瘫痪,所以要携带一些headers头部信息才能访问
         -要获取的data信息,在from data标签中
+
 -网页编码问题解决: 
 --chardet:可以自动检测页面文件的编码格式,但是可能有误 
-
 -urlopen的返回对象
 --geturl: 返回请求对象的url 
 --info: 请求反馈对象的meta信息
 --getcode: 返回http code
 
-
 -request.data 的使用
---访问网络的方法:向服务器查一个数据
- 
- ---get：利用参数给服务器传递信息,参数为dict,然后用parse编码
 
+--访问网络的方法:向服务器查一个数据 
+ ---get：利用参数给服务器传递信息,参数为dict,然后用parse编码
  ---post：一般向服务器传递参数使用 
   -----post是把信息自动加密处理
   -----如果使用post信息,需要用到data参数
@@ -41,22 +39,16 @@
     - 是OSError的子类 
 --- HTTPError: 是URLError的一个子类(先处理子类后处理父类) 
 
-
-
 两者区别: 
  -httperror是对应的HTTP请求的返回码错误，如果返回错误是400以上的,
  则引发httperror
  -urlerror对应的一般是网络出现问题,包括url问题 
-
  -关系区别： OSError - URLError - HTTPError 
-
-
 
 - UserAgent -- (浏览器信息,用户身份,设备系统信息) 判断你是谁,你用的什么浏览器 
     --- UserAgent: 用户代理,简称UA，属于headers的一部分,
             服务器用过UA来判断访问者身份
-    ---常见的UA值,使用的时候可以直接复制粘贴(headers中useragent部分),也可以用浏览器访问的时候抓包 
-
+    ---常见的UA值,使用的时候可以直接复制粘贴(headers中useragent部分),也可以用浏览器访问的时候抓包:
             分类:
             chrome
             1.Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
@@ -73,11 +65,10 @@
             3.Mozilla/5.0 (Windows NT 5.1; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.50
             4.Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; en) Opera 9.50
             等等
-
+            
     ---设置UA可以通过两个方式: 
         1.heads 
         2.add_header
-
 
 -ProxyHandler处理 (反反爬虫的常用手段)
     --代理服务器 
@@ -93,16 +84,9 @@
  3.创建opener
  4.安装opener 
 
-
-
-
-
-
 -cookie & session  
  --由于http协议的无记忆性,为了弥补这个缺陷,所采用的一个补充协议 
- -- cookie是发给用户（http浏览器）的一段信息, session是保存在服务器上的对应的
-    另一半信息,用来记录用户信息 
-
+ -- cookie是发给用户（http浏览器）的一段信息, session是保存在服务器上的对应的另一半信息,用来记录用户信息 
  --cookie 和 session的区别: 
   ---存放位置不用,cookie保存用户,session保存在服务器上
   ---cookie unsafety,session会保存在服务器上一定时间,会有过期时间
@@ -141,7 +125,7 @@
                 创建http请求管理器
                 生成https管理器
                 最后用一个opener打开即可 
-    
+
     -cookie作为一个变量(保存内存中),打印出来 v14
         -- cookie的属性: 
          ---name:名称
@@ -155,17 +139,14 @@
     -cookie的保存 - FileCookieJar，v15
     -cookie的读取.  v16 
 
-
-
 -SSL 安全层的一种协议 
 --SSL证书就是指遵守SSL安全套阶层协议的服务器数字证书(SercureSocketLayer); 
 --without ssl 浏览器会显示不安全，因为HTTP协议属于明文协议传输。所以建议网站启用SSL证书，确保自己的网站与用户安全。
---通过SercureSocketLayer,传输数据时就可以加密;
---带有https:的都是使用ssl协议
---CA(certifacateAuthority)是数字证书认证中心,是发放,管理,废除数字证书的收信人的第三方机构
+--通过SercureSocketLayer,传输数据时就可以加密,
+--带有https:的都是使用ssl协议,
+--CA(certifacateAuthority)是数字证书认证中心,是发放,管理,废除数字证书的收信人的第三方机构,
 --有些网站没有获得第三方认证,比如12306.com，遇到不信任的ssl证书,需要单独处理,用代码忽略掉
 --v17
-
 
 -js加密  
 --有的反爬虫策略采用jc对需要传输的数据进行加密处理(通常是取md5值)
@@ -174,8 +155,6 @@
 明文通过一系列加密算法转换成密文
 --过程参看v18
 ---把加密算法转换成python代码. salt , sign 
-
-
 
 -ajax请求
 --ajax请求相当于一个页面滑动滚轴可以不断得向下拉取

@@ -45,39 +45,40 @@ if __name__ == '__main__':
 
 """
 
+
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
 
-ip_addr = ('127.0.0.1',8885) 
+add = ('127.0.0.1',8889) 
 
-s.bind(ip_addr) 
+s.bind(add) 
 
 s.listen(5) 
 
-print ('waitting for connection........') 
+print ('waiting for connect........') 
+
 
 def server_fun(sock,addr): 
-    print ('Accept new connection from %s:%s...' % addr)
 
-    sock.send(b'welcome......') 
+    print ('accept new connection from %s:%s.......' % addr) 
+
+    sock.send(b'welcome connection......') 
 
     while True: 
         data = sock.recv(1024).decode() 
         sleep(1)
         if not data or data == 'exit': 
             break 
-        
-        mess = ('hello,%s!' % data).encode() 
-
-        sock.send(mess) 
+            
+        mesg = ('hello %s' % data).encode() 
+        sock.send(mesg) 
     
     sock.close() 
-    print ('Connection will close from %s:%s' % addr)
+    print ('connection will closed from %s:%s' % addr) 
 
-
-
-if __name__ == '__main__':
+if __name__ == '__main__': 
+    
     while True: 
         sock,addr = s.accept() 
-        t = Thread(target=server_fun,args=(sock,addr)) 
-        t.start()
 
+        t = Thread(target=server_fun,args=(sock,addr)) 
+        t.start() 

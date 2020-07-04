@@ -32,25 +32,23 @@ if __name__ == '__main__':
 
 """ 
 
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM) 
 
-s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-
-addr = ('127.0.0.1',8885) 
+addr = ('127.0.0.1',8889) 
 
 s.connect(addr) 
 
-data = s.recv(1024).decode() 
-print (data) 
+mes = s.recv(1024).decode() 
+print (mes) 
 
-name_list = [b'jinpeng.li',b'hu.sai',b'jinli.lin'] 
 
-for name in name_list : 
-    s.send(name) 
+name_list = [b'jinpeng.li',b'sai.hu']
+for name in name_list: 
+    s.send(name)
+    data = s.recv(1024).decode() 
+    print (data) 
 
-    mess = s.recv(1024).decode() 
-    print (mess) 
-
-s.send(b'exit') 
+msg = b'exit' 
+s.send(msg) 
 s.close() 
-
 
