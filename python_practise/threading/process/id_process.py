@@ -23,6 +23,7 @@ if __name__ == '__main__':
     p.join()
 
 """
+
 main line
 module name:__main__
 parent process: 60048
@@ -32,4 +33,5 @@ module name:__main__
 parent process: 60546
 process id: 60547
 hello bob
+
 """
