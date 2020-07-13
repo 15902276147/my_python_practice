@@ -2,7 +2,7 @@
 
 from collections import Iterator,Iterable
 
-"""
+
 def fib(max): 
     n,a,b = 0,0,1 
     while n < max: 
@@ -10,13 +10,19 @@ def fib(max):
         a,b = b,a+b 
         n += 1 
     return 'Done'
-
+"""
 g = fib(5) 
 
 for x in range(6): 
     res = next(g) 
     print (res)
-""" 
+"""
+
+ge  = fib(10) 
+for x in ge: 
+    # 生成器的典型用法是在for中使用
+    # 比较常用的典型生成器是range
+    print (x)
 
 """
 1
@@ -30,7 +36,7 @@ Traceback (most recent call last):
 StopIteration: Done
 """
 
-
+"""
 def odd(): 
     print ('Step 1') 
     yield 1 
@@ -51,7 +57,7 @@ for y in range(3):
     res = next(n) 
     print (res)
 
-
+"""
 
 """
 L = [x for x in range(5)] 
@@ -68,3 +74,5 @@ else:
         res = next(s_iter) 
         print (res) 
 """
+
+
