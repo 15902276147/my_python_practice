@@ -99,10 +99,42 @@ for x in range(6):
     print (rst) 
 
 
+# 协程 
+- 历史历程 
+- 用yield实现 
+- 实现的协程比较好的包有asyncio,tornado.gevent 
+- 协程: 是为非抢占多任务产生子程序的计算机程序组件,协程允许不同入口点
+在不同位置暂停或开始执行程序
+- 从技术角度讲,协程是一个可以暂停执行的函数,或者干脆把协程理解成生成器
 
+- 协程的实现：
+1.yield返回
+2.send调用
 
+# 协程的四个状态: 
+# inspect.getgeneratorstate(...)函数确定,该函数会返回下述字符串中的一个:
+1.GEN_CREATED:等待开始执行
+2.GEN_RUNNING:解释器正在执行
+3.GEN_SUSPENED:在yield表达式处暂停
+4.GEN_CLOSED:执行结束
+-next预激(prime)
 
+# 协程终止
+1. 协程中未处理的异常会向上冒泡,传给next函数或send方法的调用力(
+     即触发协程的对象
+ ) 
+2. 终止写成的一种方式,发送莫哥哨符值，让协程退出,内置的None和Ellipsis等
+常量经常用作哨符值==。
 
+# yield from
+1.调用协程为了得到返回值，协程必须正常终止
+2.生成器正常终止会发出StopIteration异常,异常对象的value属性保存返回值
+3.yield from 从内部捕获StopIteration异常
+4.委派生成器: 
+    - 包含yield from 表达式的生成器函数 
+    - 委派生成器在yield from表达式出暂停,调用方可以直接把数据发给子生成器,
+    子生成器把产出的值发送给调用方
+    -子生成器在最后,解释器会抛出StopIteration,并把返回值附加在异常对象上
 
 
 
